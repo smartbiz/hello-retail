@@ -1,8 +1,6 @@
-# Hello, Retail!  [![Build Status](https://travis-ci.org/Nordstrom/hello-retail.svg)](https://travis-ci.org/Nordstrom/hello-retail)
+# Amazon-AWS Serverless for Retail  [![Build Status](https://travis-ci.org/smartbiz/serverless-retail.svg)](https://github.com/smartbiz/serverless-retail)
 
-Hello, Retail! is a Nordstrom Technology open-source project. Hello, Retail! is a 100% serverless, event-driven framework and functional proof-of-concept showcasing a central unified log approach as applied to the retail problem space. All code and patterns are intended to be re-usable for scalable applications large and small.
-
-Check out https://github.com/Nordstrom/hello-retail-workshop for more explanation and a guided tour of how you might expand hello-retail with new functionality.
+Serverless Retail is a 100% Serverless, Event-Driven Framework and Functional Proof-Of-Concept showcasing a central unified log approach as applied to the Retail Industry. All code and patterns are intended to be re-usable for SME scalable applications.
 
 # Usage
 
@@ -12,7 +10,7 @@ If you are responsible for deploying this system, you'll want to do the followin
 
 1. Create an encryption key for use with KMS (`IAM` > `Encryption keys`, select your target region, `Create Key`)
 
-2. Create a Twilio account, open your "Account Settings" and create a secondary auth token for use by the hello-retail system
+2. Create a Twilio account, open your "Account Settings" and create a secondary auth token for use by the serverless-retail system
 
 3. Encrypt your Twilio account's SID and also the Secondary Auth Token with the encryption key created in step 1 and place them into your private.yml:
 
@@ -70,6 +68,6 @@ If an errors occur, troubleshoot, resolve, and resume deployment.
   * `<stage>ProductPhotosUnmessage1`
   * `<stage>ReceiveRole1`
 
-2. Note the `ServiceEndpoint` output from the execution of `npm run photos:deploy:5`.  Alternatively, inspect or describe the stack `hello-retail-product-photos-receive-<stage>` and note the `ServiceEndpoint` output.  This value will look like `https://<apiId>.execute-api.us-west-2.amazonaws.com/<stage>`.  Open the phone number configuration page for the Twilio number that you purchased and set the Messaging Webhook (use defaults "Webhooks/TwiML", "Webhook", and "HTTP POST") value to that value with a `/sms` appended to it (e.g. `https://<apiId>.execute-api.us-west-2.amazonaws.com/<stage>/sms`).  It may be helpful to note the stage name in the "Friendly Name" field as well.  Then save those configuration changes.
+2. Note the `ServiceEndpoint` output from the execution of `npm run photos:deploy:5`.  Alternatively, inspect or describe the stack `serverless-retail-product-photos-receive-<stage>` and note the `ServiceEndpoint` output.  This value will look like `https://<apiId>.execute-api.us-west-2.amazonaws.com/<stage>`.  Open the phone number configuration page for the Twilio number that you purchased and set the Messaging Webhook (use defaults "Webhooks/TwiML", "Webhook", and "HTTP POST") value to that value with a `/sms` appended to it (e.g. `https://<apiId>.execute-api.us-west-2.amazonaws.com/<stage>/sms`).  It may be helpful to note the stage name in the "Friendly Name" field as well.  Then save those configuration changes.
 
-3. Enable TTL on the table `<stage>-hello-retail-product-photos-data-PhotoRegistrations-1` using the attribute `timeToLive`
+3. Enable TTL on the table `<stage>-serverless-retail-product-photos-data-PhotoRegistrations-1` using the attribute `timeToLive`
